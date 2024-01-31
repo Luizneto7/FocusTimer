@@ -1,21 +1,23 @@
-import state from './state.js'
 import * as timer from "./timer.js"
+import states from "./states.js"
+import * as elements from "./elements.js"
 
 export function toggleRunning () {
-    state.isRunning = document.documentElement.classList.toggle("running")
+    states.isRunning = document.documentElement.classList.toggle("running")
     timer.countdown()
 }
 
 export function set () {
-    console.log("Função ainda não implementada")
+    elements.minutes.setAttribute("contenteditable", true)
+    elements.minutes.focus()
 }
 
 export function reset () {
-    state.isRunning = false
+    states.isRunning = false
     document.documentElement.classList.remove("running")
     timer.updateDisplay()
 }
 
 export function toggleMusic () {
-    state.isMuted = document.documentElement.classList.toggle("music-on")
+    states.isMuted = document.documentElement.classList.toggle("music-on")
 }

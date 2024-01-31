@@ -1,11 +1,9 @@
-import state from "./state.js"
 import * as elements from "./elements.js"
+import states from "./states.js"
 import { reset } from "./actions.js"
 
-console.log(state.isRunning)
-
-export function countdown() {
-    if(!state.isRunning){
+export function countdown () {
+    if(!states.isRunning){
         return
     }
 
@@ -14,7 +12,7 @@ export function countdown() {
 
     seconds--
 
-    if(seconds < 0){
+    if(seconds < 0 ){
         seconds = 59
         minutes--
     }
@@ -27,13 +25,11 @@ export function countdown() {
     updateDisplay(minutes, seconds)
 
     setTimeout(() => countdown(), 1000)
-
-    
 }
 
-export function updateDisplay(minutes, seconds) {
-    minutes = minutes ?? state.minutes
-    seconds = seconds ?? state.seconds
+export function updateDisplay (minutes, seconds) {
+    minutes = minutes ?? states.minutes
+    seconds = seconds ?? states.seconds
 
     elements.minutes.textContent = String(minutes).padStart(2, "0")
     elements.seconds.textContent = String(seconds).padStart(2, "0")
