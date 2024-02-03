@@ -1,21 +1,19 @@
-import { controls } from "./elements.js"
+import { controls } from "./elements.js";
 import * as actions from "./actions.js"
 import * as elements from "./elements.js"
-import states from "./states.js"
-import { updateDisplay } from "./timer.js"
+import { updateDisplay } from "./timer.js";
+import states from "./states.js";
 
-export function registerControls () {
-    controls.addEventListener("click", event =>{
+export function registerControls () { 
+    controls.addEventListener("click", event => {
         const action = event.target.dataset.action
-
-        if(typeof actions[action] != "function") {
+        
+        if(typeof actions[action] != "function"){
             return
         }
-
+        
         actions[action]()
-
     })
-
 }
 
 export function setMinutes () {
@@ -28,12 +26,11 @@ export function setMinutes () {
     elements.minutes.addEventListener("blur", event => {
         let time = event.currentTarget.textContent
         time = time > 60 ? 60 : time
-
+        
         states.minutes = time
         states.seconds = 0
 
         updateDisplay()
-
         elements.minutes.removeAttribute("contenteditable")
     })
 }
