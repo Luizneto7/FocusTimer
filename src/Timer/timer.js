@@ -3,26 +3,26 @@ import * as elements from "./elements.js"
 import { reset } from "./actions.js";
 import * as sounds from "./sounds.js"
 
-export function countdown() {
+export function countdown () {
     clearTimeout(states.timeoutId)
 
     if(!states.isRunning){
         return
     }
 
-    let minutes = Number(elements.minutes.textContent)
-    let seconds = Number(elements.seconds.textContent)
+    let minutes = elements.minutes.textContent
+    let seconds = elements.seconds.textContent
 
     seconds--
 
-    if(seconds < 0){
+    if(seconds < 0) {
         seconds = 59
         minutes--
     }
 
     if(minutes < 0){
-        sounds.kichenTimer.play()
         reset()
+        sounds.kichenTimerSound.play()
         return
     }
 

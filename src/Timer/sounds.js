@@ -1,6 +1,5 @@
-export const buttonPressAudio = new Audio("../assets/button-press.wav")
+export const buttonPressSound = new Audio("../assets/button-press.wav")
+export const kichenTimerSound = new Audio("../assets/kichen-timer.mp3")
+export const bgAudioSound = new Audio("../assets/bg-audio.mp3")
 
-export const kichenTimer = new Audio("../assets/kichen-timer.mp3")
-
-export const bgAudio = new Audio ("../assets/bg-audio.mp3")
-bgAudio.loop = true
+bgAudioSound.loop = true
